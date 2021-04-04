@@ -4,14 +4,20 @@ const concesionaria = {
 
     autos,
     
-    buscarAuto: function(array,patente){
-        for (i = 0 ; i < array.length ; i++){
-            if (array[i].patente === patente){
-                return array[i].marca + ' ' + array[i].modelo + ' ' + array[i].anio;
+    deBug: function () {
+        // let patentes = autos.patente;
+        // return autos[i].patente;
+    },
+
+    buscarAuto: function (patente) {
+        for (i = 0 ; i < autos.length ; i++){
+            if (patente == autos[i].patente ) {
+                return autos[i];
             }
         }
+        return null;
     }
 
 }
 
-console.log(concesionaria.buscarAuto(autos,'JJK116'));
+// console.log(concesionaria.deBug());
