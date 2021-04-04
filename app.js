@@ -3,11 +3,6 @@ let autos = require('./modulos/autos.js');
 const concesionaria = {
 
     autos,
-    
-    deBug: function () {
-        // let patentes = autos.patente;
-        // return autos[i].patente;
-    },
 
     buscarAuto: function (patente) {
         for (i = 0 ; i < autos.length ; i++){
@@ -16,8 +11,13 @@ const concesionaria = {
             }
         }
         return null;
+    },
+
+    venderAuto: function (patente) {
+        let autoEncontrado = [];
+        this.buscarAuto(patente);
+        autoEncontrado = autos[i];
+        autoEncontrado.vendido = true;
     }
-
+    
 }
-
-// console.log(concesionaria.deBug());
