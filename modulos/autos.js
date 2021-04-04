@@ -20,7 +20,7 @@ let autos = [
         anio: 2019,
         patente: 'JJK116',
         vendido: false
-    }
+    },
 ]
 
 module.exports = (autos);
