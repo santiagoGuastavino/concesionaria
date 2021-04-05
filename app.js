@@ -18,6 +18,11 @@ const concesionaria = {
         this.buscarAuto(patente);
         autoEncontrado = autos[i];
         autoEncontrado.vendido = true;
+    },
+
+    autosParaLaVenta : function () {
     }
-    
+
 }
+
+console.log(concesionaria.autosParaLaVenta());
