@@ -21,8 +21,10 @@ const concesionaria = {
     },
 
     autosParaLaVenta : function () {
+        let aVender = autos.filter (function(autos){
+            return autos.vendido == false;
+        });
+        return aVender;
     }
 
 }
-
-console.log(concesionaria.autosParaLaVenta());
