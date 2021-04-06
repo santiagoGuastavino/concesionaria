@@ -25,6 +25,14 @@ const concesionaria = {
             return autos.vendido == false;
         });
         return aVender;
+    },
+
+    autosNuevos : function () {
+        let aVender = this.autosParaLaVenta();
+        let autosNuevos = aVender.filter (function(aVender){
+            return aVender.km < 100;
+        });
+        return autosNuevos;
     }
 
 }
