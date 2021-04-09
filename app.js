@@ -4,7 +4,7 @@ const concesionaria = {
 
     autos,
 
-    buscarAuto: function (patente) {
+    buscarAuto: function (patente){
         for (i = 0 ; i < autos.length ; i++){
             if (patente == autos[i].patente ) {
                 return autos[i];
@@ -13,26 +13,42 @@ const concesionaria = {
         return null;
     },
 
-    venderAuto: function (patente) {
+    venderAuto: function (patente){
         let autoEncontrado = [];
         this.buscarAuto(patente);
         autoEncontrado = autos[i];
         autoEncontrado.vendido = true;
     },
 
-    autosParaLaVenta : function () {
-        let aVender = autos.filter (function(autos){
+    autosParaLaVenta : function (){
+        let aVender = autos.filter(function(autos){
             return autos.vendido == false;
         });
         return aVender;
     },
 
-    autosNuevos : function () {
+    autosNuevos : function (){
         let aVender = this.autosParaLaVenta();
-        let autosNuevos = aVender.filter (function(aVender){
+        let autosNuevos = aVender.filter(function(aVender){
             return aVender.km < 100;
         });
         return autosNuevos;
+    },
+
+    listaDeVentas : function (){
+        let autosVendidos = autos.filter(function(autos){
+            return autos.vendido == true;
+        });
+        let valores = [];
+        for (i = 0 ; i < autosVendidos.length ; i++){
+            valores.push(autosVendidos[i].precio);
+
+        };
+        return valores;
     }
 
 }
+
+concesionaria.venderAuto('APL123');
+concesionaria.venderAuto('JJK116');
+concesionaria.venderAuto('CUB523');
