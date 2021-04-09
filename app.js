@@ -20,14 +20,14 @@ const concesionaria = {
         autoEncontrado.vendido = true;
     },
 
-    autosParaLaVenta : function (){
+    autosParaLaVenta: function (){
         let aVender = autos.filter(function(autos){
             return autos.vendido == false;
         });
         return aVender;
     },
 
-    autosNuevos : function (){
+    autosNuevos: function (){
         let aVender = this.autosParaLaVenta();
         let autosNuevos = aVender.filter(function(aVender){
             return aVender.km < 100;
@@ -35,7 +35,7 @@ const concesionaria = {
         return autosNuevos;
     },
 
-    listaDeVentas : function (){
+    listaDeVentas: function (){
         let autosVendidos = autos.filter(function(autos){
             return autos.vendido == true;
         });
@@ -45,6 +45,14 @@ const concesionaria = {
 
         };
         return valores;
+    },
+
+    totalDeVentas: function (){
+        let valores = this.listaDeVentas();
+        let sumaDeValores = valores.reduce(function(acum,num){
+            return acum + num;
+        },0);
+        return sumaDeValores;
     }
 
 }
