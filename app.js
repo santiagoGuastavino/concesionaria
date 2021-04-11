@@ -1,8 +1,10 @@
 let autos = require('./modulos/autos.js');
+let personas = require('./modulos/personas.js');
 
 const concesionaria = {
 
     autos,
+    personas,
 
     buscarAuto: function (patente){
         for (i = 0 ; i < autos.length ; i++){
@@ -53,10 +55,29 @@ const concesionaria = {
             return acum + num;
         },0);
         return sumaDeValores;
+    },
+
+    puedeComprar: function (auto,nombrePersona){
+
+
+
+        let autoEncontrado = this.buscarAuto(auto)
+        let precioAuto = autoEncontrado.precio;
+        let precioCuotas = () => precioAuto / autoEncontrado.cuotas;
+
+        return precioCuotas();
     }
 
 }
 
-concesionaria.venderAuto('APL123');
-concesionaria.venderAuto('JJK116');
-concesionaria.venderAuto('CUB523');
+console.log(concesionaria.puedeComprar('APL123'));
+
+
+
+
+
+
+
+// concesionaria.venderAuto('APL123');
+// concesionaria.venderAuto('JJK116');
+// concesionaria.venderAuto('CUB523');
