@@ -8,7 +8,7 @@ const concesionaria = {
 
     buscarAuto: function (patente){
         for (i = 0 ; i < autos.length ; i++){
-            if (patente == autos[i].patente ) {
+            if (patente == autos[i].patente){
                 return autos[i];
             }
         }
@@ -57,27 +57,24 @@ const concesionaria = {
         return sumaDeValores;
     },
 
-    puedeComprar: function (auto,nombrePersona){
-
-
-
-        let autoEncontrado = this.buscarAuto(auto)
+    puedeComprar: function (patente,nombrePersona){
+        let autoEncontrado = this.buscarAuto(patente)
         let precioAuto = autoEncontrado.precio;
         let precioCuotas = () => precioAuto / autoEncontrado.cuotas;
-
-        return precioCuotas();
+        
+        for (i = 0 ; i < personas.length ; i++){
+            if (nombrePersona == personas[i].nombre){
+                if (personas[i].capacidadDePagoEnCuotas >= precioCuotas() && personas[i].capacidadDePagoTotal >= precioAuto){
+                    return true;
+                }
+            }
+        }
+        return 'No le alcanza';
     }
 
 }
 
-console.log(concesionaria.puedeComprar('APL123'));
-
-
-
-
-
-
-
+console.log(concesionaria.puedeComprar('JJK116','Juan'));
 // concesionaria.venderAuto('APL123');
 // concesionaria.venderAuto('JJK116');
 // concesionaria.venderAuto('CUB523');
