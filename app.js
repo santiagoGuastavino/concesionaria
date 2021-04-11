@@ -57,24 +57,18 @@ const concesionaria = {
         return sumaDeValores;
     },
 
-    puedeComprar: function (patente,nombrePersona){
-        let autoEncontrado = this.buscarAuto(patente)
-        let precioAuto = autoEncontrado.precio;
-        let precioCuotas = () => precioAuto / autoEncontrado.cuotas;
-        
-        for (i = 0 ; i < personas.length ; i++){
-            if (nombrePersona == personas[i].nombre){
-                if (personas[i].capacidadDePagoEnCuotas >= precioCuotas() && personas[i].capacidadDePagoTotal >= precioAuto){
-                    return true;
-                }
-            }
+    puedeComprar: function (auto,persona){
+        let precioCuota = auto.precio / auto.cuotas;
+        if (persona.capacidadDePagoTotal > auto.precio && persona.capacidadDePagoEnCuotas > precioCuota){
+            return true;
+        }else{
+            return false;
         }
-        return 'No le alcanza';
     }
 
 }
 
-console.log(concesionaria.puedeComprar('JJK116','Juan'));
+
 // concesionaria.venderAuto('APL123');
 // concesionaria.venderAuto('JJK116');
 // concesionaria.venderAuto('CUB523');
