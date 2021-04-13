@@ -1,10 +1,13 @@
 let autos = require('./modulos/autos.js');
-let personas = require('./modulos/personas.js');
+let persona = {
+    nombre: 'Juan',
+    capacidadDePagoEnCuotas: 50000,
+    capacidadDePagoTotal: 200000
+};
 
 const concesionaria = {
 
     autos,
-    personas,
 
     buscarAuto: function (patente){
         for (i = 0 ; i < autos.length ; i++){
@@ -57,9 +60,10 @@ const concesionaria = {
         return sumaDeValores;
     },
 
-    puedeComprar: function (auto,persona){
-        let precioCuota = auto.precio / auto.cuotas;
-        if (persona.capacidadDePagoTotal > auto.precio && persona.capacidadDePagoEnCuotas > precioCuota){
+    puedeComprar: function (patente,persona){
+        let auto = this.buscarAuto(patente);
+        let precioCuotas = auto.precio / auto.cuotas;
+        if (persona.capacidadDePagoTotal >= auto.precio && persona.capacidadDePagoEnCuotas >= precioCuotas){
             return true;
         }else{
             return false;
@@ -68,7 +72,7 @@ const concesionaria = {
 
 }
 
-
+console.log(concesionaria.puedeComprar('APL123',persona));
 // concesionaria.venderAuto('APL123');
 // concesionaria.venderAuto('JJK116');
 // concesionaria.venderAuto('CUB523');
