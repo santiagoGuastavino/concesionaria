@@ -1,8 +1,9 @@
 let autos = require('./modulos/autos.js');
+
 let persona = {
     nombre: 'Juan',
-    capacidadDePagoEnCuotas: 50000,
-    capacidadDePagoTotal: 200000
+    capacidadDePagoEnCuotas: 200000,
+    capacidadDePagoTotal: 90000
 };
 
 const concesionaria = {
@@ -68,11 +69,17 @@ const concesionaria = {
         }else{
             return false;
         }
+    },
+
+    autosQuePuedeComprar: function (persona){
+        let autosParaLaVenta = this.autosParaLaVenta();
+        let autosQuePuedeComprar = []
+        for (i = 0 ; i < autosParaLaVenta.length; i++){
+            if (this.puedeComprar(autosParaLaVenta[i].patente,persona) == true){
+                autosQuePuedeComprar.push(autosParaLaVenta[i]);
+            }
+            
+        }
+        return autosQuePuedeComprar;
     }
-
 }
-
-console.log(concesionaria.puedeComprar('APL123',persona));
-// concesionaria.venderAuto('APL123');
-// concesionaria.venderAuto('JJK116');
-// concesionaria.venderAuto('CUB523');
