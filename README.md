@@ -1,4 +1,10 @@
-<h3>Javascript practice</h3>  
+Car dealership
+---
 
-This excercised has no other purpose that making use of the most basic concepts of programming and JavaScript.  
-When constructed, it was suggested as a simulation in which a client brings up a series of requests to a Tech Leader, who then transfers technical demands to me.
+_Javascript challenge_
+<h3>For this project I used:</h3>  
+
+- Javascript
+- [Node.js](https://nodejs.org)  
+
+This simple javascript challenge was developed following steps provided by the [Coding Academy](https://www.digitalhouse.com/) I was tutored by.
